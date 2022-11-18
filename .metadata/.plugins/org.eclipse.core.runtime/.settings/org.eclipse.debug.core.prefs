@@ -1,0 +1,2 @@
+eclipse.preferences.version=1
+prefWatchExpressions=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\r\n<watchExpressions>\r\n    <expression enabled\="true" text\="elementAt instanceof Movable"/>\r\n    <expression enabled\="true" text\="elementAt instanceof Pickable"/>\r\n    <expression enabled\="true" text\="elementAt instanceof Floor"/>\r\n    <expression enabled\="true" text\="elementAt instanceof Door"/>\r\n    <expression enabled\="true" text\="elementAt instanceof Wall"/>\r\n</watchExpressions>\r\n

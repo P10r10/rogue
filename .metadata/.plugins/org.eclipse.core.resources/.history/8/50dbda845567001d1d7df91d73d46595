@@ -1,0 +1,156 @@
+package structures;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import characters.Hero;
+import characters.Living;
+import characters.Movable;
+import items.Pickable;
+import logic.GameElement;
+import logic.GameEngine;
+import pt.iscte.poo.gui.ImageTile;
+import pt.iscte.poo.utils.Point2D;
+
+public class Room {
+
+	private String name;
+	private List<GameElement> elements;
+	private Hero hero = Hero.getInstance();// added review
+
+	public Room(String name, List<GameElement> elements) {
+		this.name = name;
+		this.elements = elements;
+		for (ImageTile image : elements) {
+			GameEngine.getInstance().getGui().addImage(image);
+		}
+		GameEngine.getInstance().getGui().addImage(hero);// ATENÇÃO!!!!!
+		//System.out.println(elements);//remove
+	}
+
+	public Hero getHero() {
+		return hero;
+	}
+
+//	private void load() {
+//		for (ImageTile image : elements) {
+//			GameEngine.getInstance().getGui().addImage(image);
+//		}
+//		GameEngine.getInstance().getGui().addImage(hero);//ATENÇÃO!!!!!
+//	}
+
+//	private void loadFloor() {
+//		for (int x = 1; x < 9; x++) {
+//			for (int y = 1; y < 9; y++) {
+//				GameEngine.getInstance().getGui().addImage(new Floor(new Point2D(x, y)));
+//			}
+//		}
+//	}
+
+	public void removeGameElement(ImageTile gameElement) {
+		elements.remove(gameElement);
+	}
+
+	public void moveEnemies() {// Make private?
+		for (ImageTile gameElement : elements) {
+			if (gameElement instanceof Movable)
+				((Movable) gameElement).move();
+		}
+	}
+	/**/
+	public GameElement elementsAt(Point2D position) {
+		List<GameElement> elementsAt = new ArrayList<>();
+		for (GameElement element : elements) {
+			if (position.equals(element.getPosition())) {
+				elementsAt.add(element);
+			}
+		}
+		GameElement toReturn = null;
+		for (GameElement elementAt : elementsAt) {
+//			if (elementAt instanceof Movable) {
+//				return elementAt;
+//			}
+//			if (elementAt instanceof Pickable) {
+//				return elementAt;
+//			}
+			if (elementAt instanceof Door) {
+				toReturn = elementAt;
+			}
+			if (elementAt instanceof Wall) {
+				toReturn = elementAt;
+			}
+			if (elementAt instanceof Floor) {
+				toReturn = elementAt;
+			}
+		}
+		if (toReturn != null)
+			return toReturn;
+	}
+		
+//		for (GameElement g : res) {
+//			if (g instanceof Wall) {
+//				System.out.println("Wall!!!");
+//			}
+//			if (g instanceof Sword) {
+//				System.out.println("Sword!!!");
+//			}
+//			if (g instanceof Door) {
+//				System.out.println("Door!!!");
+//			}
+//		}
+//		return res;
+//		for (GameElement element : elements) {
+//			if (position.equals(element.getPosition())) {
+//				System.out.println("HERE!");
+//				if (element instanceof Movable) {
+//					return element;
+//				}
+//				if (element instanceof Pickable) {
+//					return element;
+//				}
+//				if (element instanceof Door) {
+//					return element;
+//				}
+//				if (element instanceof Wall) {
+//					//return element;
+//				}
+//				if (element instanceof Floor) {
+//					return element;
+//				}
+//			}
+//		}
+//		return null;
+//	}
+
+	public ImageTile elementAt(Point2D position) {
+		for (ImageTile gameElement : elements) {
+			if (position.equals(gameElement.getPosition())) {
+				return gameElement;
+			}
+		}
+		return null;
+	}
+
+	public ImageTile enemyAt(Point2D position) {
+		for (ImageTile gameElement : elements) {
+			if (gameElement instanceof Living && position.equals(gameElement.getPosition())) {
+				return gameElement;
+			}
+		}
+		return null;
+	}
+
+	public ImageTile itemAt(Point2D position) {// REVIEW
+		for (ImageTile gameElement : elements) {
+			if (gameElement instanceof Pickable && position.equals(gameElement.getPosition())) {
+				return gameElement;
+			}
+		}
+		return null;
+	}
+
+	@Override
+	public String toString() {
+		return name;
+	}
+}
