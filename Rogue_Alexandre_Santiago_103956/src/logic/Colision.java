@@ -41,7 +41,7 @@ public class Colision {
 			damage = 1;
 		}
 		if (hero.isDead(damage)) { // if hero takes deadly damage game is over
-			GameEngine.getInstance().getGurrentRoom().removeGameElement(hero);
+			//GameEngine.getInstance().getGurrentRoom().removeGameElement(hero);
 			GameEngine.getInstance().getGui().setMessage("YOU ARE DEAD!!! GAME OVER");
 			GameEngine.getInstance().getGui().dispose();
 			System.exit(0);

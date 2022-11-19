@@ -20,18 +20,16 @@ public class Movement {
 		Point2D heroPosition = hero.getPosition();
 		Point2D destination = heroPosition.plus(Direction.directionFor(key).asVector());
 
-		//System.out.println(room.elementAt(destination));//DEBUG REMOVE
+		System.out.println(room.elementAt(destination));//DEBUG REMOVE
 		if (room.elementAt(destination) instanceof Living) {
 			Colision.withEnemy(room.elementAt(destination));
-		} else if (room.elementAt(destination) instanceof Pickable && hero.canCarry()) {
+		} else if (room.elementAt(destination) instanceof Pickable && hero.hasFreeSlot()) {
 			((Pickable) room.elementAt(destination)).pick();
-			hero.addInventory((Pickable) room.elementAt(destination));
-			room.removeGameElement(room.elementAt(destination));
-			hero.setPosition(destination);
+			hero.setPosition(destination);//BUG MOVE PARA CIMA OBJ
 		} else if (room.elementAt(destination) instanceof Floor) {
 			hero.setPosition(destination);
 		}
-		GameEngine.getInstance().setTurns(++turns);// every key increases turn
+		GameEngine.getInstance().setTurns(++turns);// every movement key increases turn
 	}
 
 	public static void move(GameElement element) {

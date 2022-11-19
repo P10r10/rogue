@@ -7,6 +7,7 @@ import java.util.List;
 import pt.iscte.poo.gui.ImageMatrixGUI;
 import pt.iscte.poo.observer.Observed;
 import pt.iscte.poo.observer.Observer;
+import pt.iscte.poo.utils.Point2D;
 import structures.Room;
 
 public class GameEngine implements Observer {
@@ -72,7 +73,7 @@ public class GameEngine implements Observer {
 		}
 		switch (keyPressed) {
 		case KeyEvent.VK_1:
-			currentRoom.getHero().dropItem(0);
+			currentRoom.getHero().dropItem(0);//TODO
 			break;
 		case KeyEvent.VK_2:
 			currentRoom.getHero().dropItem(1);

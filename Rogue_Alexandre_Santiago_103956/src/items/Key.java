@@ -1,12 +1,13 @@
 package items;
 
 import logic.GameElement;
+import logic.GameEngine;
 import pt.iscte.poo.utils.Point2D;
 
 public class Key extends GameElement implements Pickable {
 	
 	private String id;
-	private boolean isPicked = false;
+	//private boolean isPicked = false;
 	private int layer = 1;
 
 	public Key(Point2D position, String id) {
@@ -16,10 +17,10 @@ public class Key extends GameElement implements Pickable {
 
 	@Override
 	public String getName() {
-		if (isPicked) {
-			layer = 0;
-			return "Floor";
-		}
+//		if (isPicked) {
+//			layer = 0;
+//			return "Floor";
+//		}
 		return "Key";
 	}
 	
@@ -29,7 +30,11 @@ public class Key extends GameElement implements Pickable {
 	}
 	
 	public void pick() {
-		isPicked = true;
+	//	isPicked = true;
+		Point2D position = GameEngine.getInstance().getGurrentRoom().getHero().getNextFreeSlot();
+		if (position != null) {
+			setPosition(position);
+		}
 	}
 	
 	@Override

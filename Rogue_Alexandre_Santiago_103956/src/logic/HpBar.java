@@ -3,9 +3,9 @@ package logic;
 import java.util.ArrayList;
 import java.util.List;
 
-import items.Item;
 import pt.iscte.poo.gui.ImageTile;
 import pt.iscte.poo.utils.Point2D;
+import structures.Black;
 
 public class HpBar {
 
@@ -19,8 +19,11 @@ public class HpBar {
 		stubs.add(new HpStub(new Point2D(2, 10), 6));
 		stubs.add(new HpStub(new Point2D(3, 10), 8));
 		stubs.add(new HpStub(new Point2D(4, 10), 10));
-		stubs.add(new Item(new Point2D(5, 10)));// only visual/never changes
-		stubs.add(new Item(new Point2D(6, 10)));// only visual/never changes
+		stubs.add(new Black(new Point2D(5, 10)));// only visual background/never changes
+		stubs.add(new Black(new Point2D(6, 10)));// only visual background/never changes
+		stubs.add(new Black(new Point2D(7, 10)));// only visual background/never changes
+		stubs.add(new Black(new Point2D(8, 10)));// only visual background/never changes
+		stubs.add(new Black(new Point2D(9, 10)));// only visual background/never changes
 	}
 
 	public List<ImageTile> getComponents() {
