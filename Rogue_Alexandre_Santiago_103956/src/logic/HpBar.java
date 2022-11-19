@@ -5,7 +5,7 @@ import java.util.List;
 
 import pt.iscte.poo.gui.ImageTile;
 import pt.iscte.poo.utils.Point2D;
-import structures.BlackSquare;
+import structures.Item;
 
 public class HpBar {
 
@@ -19,8 +19,8 @@ public class HpBar {
 		stubs.add(new HpStub(new Point2D(2, 10), 6));
 		stubs.add(new HpStub(new Point2D(3, 10), 8));
 		stubs.add(new HpStub(new Point2D(4, 10), 10));
-		stubs.add(new BlackSquare(new Point2D(5, 10)));// only visual/never changes
-		stubs.add(new BlackSquare(new Point2D(6, 10)));// only visual/never changes
+		stubs.add(new Item(new Point2D(5, 10)));// only visual/never changes
+		stubs.add(new Item(new Point2D(6, 10)));// only visual/never changes
 	}
 
 	public List<ImageTile> getComponents() {

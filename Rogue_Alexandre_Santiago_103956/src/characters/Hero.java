@@ -3,6 +3,7 @@ package characters;
 import java.util.ArrayList;
 import java.util.List;
 
+import items.HealingPotion;
 import items.Pickable;
 import logic.GameElement;
 import logic.HpBar;
@@ -29,10 +30,10 @@ public class Hero extends GameElement implements Living {
 		return INSTANCE;
 	}
 	
-	public void addInventory(Pickable item ) {
+	public void addInventory(Pickable item) {
 		if (canCarry) {
 			inventory.add(item);
-			itemBar.addItem((ImageTile)item);
+			itemBar.addItem((ImageTile) item);
 		}
 		if (inventory.size() == 3) {
 			canCarry = false;
