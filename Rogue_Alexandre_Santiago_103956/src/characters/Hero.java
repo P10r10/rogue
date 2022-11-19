@@ -38,6 +38,10 @@ public class Hero extends GameElement implements Living {
 			canCarry = false;
 		}
 	}
+	
+	public void dropItem(int slot) {
+		itemBar.dropFromSlot(slot);
+	}
 
 	public boolean canCarry() {
 		return canCarry;

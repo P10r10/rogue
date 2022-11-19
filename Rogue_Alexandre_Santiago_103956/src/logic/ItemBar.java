@@ -20,6 +20,12 @@ public class ItemBar {
 	public List<ImageTile> getComponents() {
 		return items;
 	}
+	
+	public void dropFromSlot(int slot) {
+		Item item = (Item) items.get(slot);
+		item.setCurrentImage("Black");
+		currentSlot = slot;
+	}
 
 	public void addItem(ImageTile image) {
 		if (currentSlot < 3) {

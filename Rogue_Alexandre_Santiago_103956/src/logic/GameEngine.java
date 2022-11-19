@@ -52,25 +52,35 @@ public class GameEngine implements Observer {
 
 	public void start() { // init only once
 
-		//rooms.add(new Room("testRoom2"));// Load every room?
+		// rooms.add(new Room("testRoom2"));// Load every room?
 		rooms.add(FileReader.createRoom("testRoom2"));// Load every room?
 		currentRoom = rooms.get(0); // starting room
-		
+
 		gui.setStatusMessage("Good luck!");
-		
-		//gui.addImages(new HpBar().getComponents());//new HpBar?
-		//gui.addImages(new ItemBar().getComponents());//new HpBar?
-		
+
+		// gui.addImages(new HpBar().getComponents());//new HpBar?
+		// gui.addImages(new ItemBar().getComponents());//new HpBar?
+
 		gui.update();
 	}
 
 	@Override
 	public void update(Observed source) {
-		int key = ((ImageMatrixGUI) source).keyPressed();
-		if (key >= KeyEvent.VK_LEFT && key <= KeyEvent.VK_DOWN) {
-			Movement.keyPress(key); // moves Hero when arrow key is pressed
+		int keyPressed = ((ImageMatrixGUI) source).keyPressed();
+		if (keyPressed >= KeyEvent.VK_LEFT && keyPressed <= KeyEvent.VK_DOWN) {
+			Movement.keyPress(keyPressed); // moves Hero when arrow key is pressed
 		}
-		// if OTHER keys like drop, use //TODO
+		switch (keyPressed) {
+		case KeyEvent.VK_1:
+			currentRoom.getHero().dropItem(0);
+			break;
+		case KeyEvent.VK_2:
+			currentRoom.getHero().dropItem(1);
+			break;
+		case KeyEvent.VK_3:
+			currentRoom.getHero().dropItem(2);
+			break;
+		}
 
 		currentRoom.moveEnemies();// only current room?
 
