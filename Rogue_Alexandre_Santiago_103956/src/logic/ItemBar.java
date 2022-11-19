@@ -10,8 +10,8 @@ public class ItemBar {
 	private List<ImageTile> items = new ArrayList<>();
 
 	public ItemBar() {
-		items.add(new Item(new Point2D(5, 10)));
-		items.add(new Item(new Point2D(6, 10)));
+//		items.add(new Item(new Point2D(5, 10)));
+//		items.add(new Item(new Point2D(6, 10)));
 //		items.add(new Item(new Point2D(7, 10)));
 //		items.add(new Item(new Point2D(8, 10)));
 //		items.add(new Item(new Point2D(9, 10)));

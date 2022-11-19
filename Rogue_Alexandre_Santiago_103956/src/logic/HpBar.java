@@ -6,6 +6,7 @@ import java.util.List;
 import characters.Hero;
 import pt.iscte.poo.gui.ImageTile;
 import pt.iscte.poo.utils.Point2D;
+import structures.BlackSquare;
 
 public class HpBar {
 
@@ -17,6 +18,8 @@ public class HpBar {
 		stubs.add(new HpStub(new Point2D(2, 10), 6));
 		stubs.add(new HpStub(new Point2D(3, 10), 8));
 		stubs.add(new HpStub(new Point2D(4, 10), 10));
+		stubs.add(new BlackSquare(new Point2D(5, 10)));
+		stubs.add(new BlackSquare(new Point2D(6, 10)));
 	}
 
 	public List<ImageTile> getComponents() {

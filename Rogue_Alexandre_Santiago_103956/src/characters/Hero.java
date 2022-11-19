@@ -11,7 +11,7 @@ public class Hero extends GameElement implements Living {
 	/* Hero implements the singleton pattern */
 	private static Hero INSTANCE = null;
 	private int hp = 10; // initial hp
-	private List<Pickable> items = new ArrayList<>();
+	private List<Pickable> inventory = new ArrayList<>();
 	private boolean canCarry = true;
 
 	private Hero(Point2D position) {
@@ -26,9 +26,9 @@ public class Hero extends GameElement implements Living {
 	
 	public void addInventory(Pickable item ) {
 		if (canCarry) {
-			items.add(item);
+			inventory.add(item);
 		}
-		if (items.size() == 3) {
+		if (inventory.size() == 3) {
 			canCarry = false;
 		}
 	}
