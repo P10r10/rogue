@@ -6,6 +6,8 @@ import java.util.List;
 import items.Pickable;
 import logic.GameElement;
 import logic.HpBar;
+import logic.ItemBar;
+import pt.iscte.poo.gui.ImageTile;
 import pt.iscte.poo.utils.Point2D;
 
 public class Hero extends GameElement implements Living {
@@ -13,6 +15,7 @@ public class Hero extends GameElement implements Living {
 	private static Hero INSTANCE = null;
 	private int hp = 10; // initial hp
 	private final HpBar hpBar = new HpBar(10);
+	private final ItemBar itemBar = new ItemBar();
 	private List<Pickable> inventory = new ArrayList<>();
 	private boolean canCarry = true;
 
@@ -29,6 +32,7 @@ public class Hero extends GameElement implements Living {
 	public void addInventory(Pickable item ) {
 		if (canCarry) {
 			inventory.add(item);
+			itemBar.addItem((ImageTile)item);
 		}
 		if (inventory.size() == 3) {
 			canCarry = false;
@@ -41,6 +45,10 @@ public class Hero extends GameElement implements Living {
 	
 	public HpBar getHpBar() {
 		return hpBar;
+	}
+
+	public ItemBar getItemBar() {
+		return itemBar;
 	}
 
 	@Override

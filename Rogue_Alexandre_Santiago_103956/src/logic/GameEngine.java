@@ -59,7 +59,7 @@ public class GameEngine implements Observer {
 		gui.setStatusMessage("Good luck!");
 		
 		//gui.addImages(new HpBar().getComponents());//new HpBar?
-		gui.addImages(new ItemBar().getComponents());//new HpBar?
+		//gui.addImages(new ItemBar().getComponents());//new HpBar?
 		
 		gui.update();
 	}
