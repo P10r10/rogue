@@ -25,9 +25,7 @@ public class Room {
 		}
 		GameEngine.getInstance().getGui().addImage(hero);
 		GameEngine.getInstance().getGui().addImages(hero.getHpBar().getComponents());
-		//TODO item bar
 		GameEngine.getInstance().getGui().addImages(hero.getItemBar().getComponents());
-		//hero.getItemBar().addItem(hero);
 	}
 
 	public Hero getHero() {

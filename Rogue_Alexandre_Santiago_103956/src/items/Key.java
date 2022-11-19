@@ -31,4 +31,9 @@ public class Key extends GameElement implements Pickable {
 	public void pick() {
 		isPicked = true;
 	}
+	
+	@Override
+	public String toString() {
+		return "Key";
+	}
 }

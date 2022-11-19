@@ -3,9 +3,9 @@ package logic;
 import java.util.ArrayList;
 import java.util.List;
 
+import items.Item;
 import pt.iscte.poo.gui.ImageTile;
 import pt.iscte.poo.utils.Point2D;
-import structures.Item;
 
 public class HpBar {
 

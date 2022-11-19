@@ -1,4 +1,4 @@
-package structures;
+package items;
 
 import pt.iscte.poo.gui.ImageTile;
 import pt.iscte.poo.utils.Point2D;
@@ -11,7 +11,7 @@ public class Item implements ImageTile {
 	public Item(Point2D position) {
 		this.position = position;
 	}
-	
+
 	public void setCurrentImage(String currentImage) {
 		this.currentImage = currentImage;
 	}
@@ -28,6 +28,6 @@ public class Item implements ImageTile {
 
 	@Override
 	public int getLayer() {
-		return 0;
+		return 1;
 	}
 }

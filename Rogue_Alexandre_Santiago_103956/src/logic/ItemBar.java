@@ -3,12 +3,13 @@ package logic;
 import java.util.ArrayList;
 import java.util.List;
 
+import items.Item;
 import pt.iscte.poo.gui.ImageTile;
 import pt.iscte.poo.utils.Point2D;
-import structures.Item;
 
 public class ItemBar {
 	private List<ImageTile> items = new ArrayList<>();
+	private int currentSlot = 0;
 
 	public ItemBar() {
 		items.add(new Item(new Point2D(7, 10)));
@@ -21,7 +22,10 @@ public class ItemBar {
 	}
 
 	public void addItem(ImageTile image) {
-		Item x = (Item) items.get(0);
-		x.setCurrentImage("Armor");//HERE
+		if (currentSlot < 3) {
+			Item item = (Item) items.get(currentSlot);
+			item.setCurrentImage(image.toString());
+			currentSlot++;
+		}
 	}
 }

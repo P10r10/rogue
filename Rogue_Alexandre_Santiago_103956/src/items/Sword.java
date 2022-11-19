@@ -7,7 +7,7 @@ public class Sword extends GameElement implements Pickable {
 
 	private boolean isPicked = false;
 	private int layer = 1;
-	
+
 	public Sword(Point2D position) {
 		super(position);
 	}
@@ -25,8 +25,13 @@ public class Sword extends GameElement implements Pickable {
 	public int getLayer() {
 		return layer;
 	}
-	
+
 	public void pick() {
 		isPicked = true;
+	}
+
+	@Override
+	public String toString() {
+		return "Sword";
 	}
 }

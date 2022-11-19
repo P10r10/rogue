@@ -3,7 +3,6 @@ package characters;
 import java.util.ArrayList;
 import java.util.List;
 
-import items.HealingPotion;
 import items.Pickable;
 import logic.GameElement;
 import logic.HpBar;
@@ -26,10 +25,10 @@ public class Hero extends GameElement implements Living {
 
 	public static Hero getInstance() {
 		if (INSTANCE == null)
-			INSTANCE = new Hero(new Point2D(1, 1));//Initial position
+			INSTANCE = new Hero(new Point2D(1, 1));// Initial position
 		return INSTANCE;
 	}
-	
+
 	public void addInventory(Pickable item) {
 		if (canCarry) {
 			inventory.add(item);
@@ -39,11 +38,11 @@ public class Hero extends GameElement implements Living {
 			canCarry = false;
 		}
 	}
-	
+
 	public boolean canCarry() {
 		return canCarry;
 	}
-	
+
 	public HpBar getHpBar() {
 		return hpBar;
 	}
@@ -53,7 +52,7 @@ public class Hero extends GameElement implements Living {
 	}
 
 	@Override
-	public boolean isDead(int damage) {//change to TAKESDAMAGE
+	public boolean isDead(int damage) {// change to TAKESDAMAGE
 		hp = hp - damage;
 		hpBar.setHp(hp);
 		if (hp <= 0) {

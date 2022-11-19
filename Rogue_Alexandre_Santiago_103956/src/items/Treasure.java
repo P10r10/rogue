@@ -19,8 +19,14 @@ public class Treasure extends GameElement implements Pickable{
 	public int getLayer() {
 		return 1;
 	}
+	
 	public void pick() {
 		GameEngine.getInstance().getGui().setMessage("Congratulations!!! YOU WON!");
 		GameEngine.getInstance().getGui().dispose();
+	}
+	
+	@Override
+	public String toString() {
+		return getName();
 	}
 }
