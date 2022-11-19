@@ -5,12 +5,14 @@ import java.util.List;
 
 import items.Pickable;
 import logic.GameElement;
+import logic.HpBar;
 import pt.iscte.poo.utils.Point2D;
 
 public class Hero extends GameElement implements Living {
 	/* Hero implements the singleton pattern */
 	private static Hero INSTANCE = null;
 	private int hp = 10; // initial hp
+	private final HpBar hpBar = new HpBar(10);
 	private List<Pickable> inventory = new ArrayList<>();
 	private boolean canCarry = true;
 
@@ -36,10 +38,15 @@ public class Hero extends GameElement implements Living {
 	public boolean canCarry() {
 		return canCarry;
 	}
+	
+	public HpBar getHpBar() {
+		return hpBar;
+	}
 
 	@Override
-	public boolean isDead(int damage) {
+	public boolean isDead(int damage) {//change to TAKESDAMAGE
 		hp = hp - damage;
+		hpBar.setHp(hp);
 		if (hp <= 0) {
 			return true;
 		}

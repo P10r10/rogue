@@ -11,26 +11,32 @@ import structures.BlackSquare;
 public class HpBar {
 
 	private List<ImageTile> stubs = new ArrayList<>();
+	private int hp;
 
-	public HpBar() {
+	public HpBar(int hp) {
+		this.hp = hp;
 		stubs.add(new HpStub(new Point2D(0, 10), 2));
 		stubs.add(new HpStub(new Point2D(1, 10), 4));
 		stubs.add(new HpStub(new Point2D(2, 10), 6));
 		stubs.add(new HpStub(new Point2D(3, 10), 8));
 		stubs.add(new HpStub(new Point2D(4, 10), 10));
-		stubs.add(new BlackSquare(new Point2D(5, 10)));
-		stubs.add(new BlackSquare(new Point2D(6, 10)));
+		stubs.add(new BlackSquare(new Point2D(5, 10)));//only visual/never changes
+		stubs.add(new BlackSquare(new Point2D(6, 10)));//only visual/never changes
 	}
 
 	public List<ImageTile> getComponents() {
 		return stubs;
+	}
+	
+	public void setHp(int hp) {
+		this.hp = hp;
 	}
 
 	private class HpStub implements ImageTile {
 
 		private Point2D position;
 		private int limit;
-		Hero hero = GameEngine.getInstance().getGurrentRoom().getHero();
+		//Hero hero = GameEngine.getInstance().getGurrentRoom().getHero();
 
 		public HpStub(Point2D position, int limit) {
 			this.position = position;
@@ -39,10 +45,10 @@ public class HpBar {
 
 		@Override
 		public String getName() {
-			if (hero.getHp() >= limit) {
+			if (hp >= limit) {
 				return "Green";
 			}
-			if (hero.getHp() == limit - 1) {
+			if (hp == limit - 1) {
 				return "GreenRed";
 			}
 			return "Red";

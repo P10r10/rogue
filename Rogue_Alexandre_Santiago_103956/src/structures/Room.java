@@ -23,7 +23,8 @@ public class Room {
 		for (ImageTile image : elements) {
 			GameEngine.getInstance().getGui().addImage(image);
 		}
-		GameEngine.getInstance().getGui().addImage(hero);// ATENÇÃO!!!!!
+		GameEngine.getInstance().getGui().addImage(hero);
+		GameEngine.getInstance().getGui().addImages(hero.getHpBar().getComponents());
 	}
 
 	public Hero getHero() {
