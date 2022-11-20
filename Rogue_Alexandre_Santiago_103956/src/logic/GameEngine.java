@@ -59,9 +59,6 @@ public class GameEngine implements Observer {
 
 		gui.setStatusMessage("Good luck!");
 
-		// gui.addImages(new HpBar().getComponents());//new HpBar?
-		// gui.addImages(new ItemBar().getComponents());//new HpBar?
-
 		gui.update();
 	}
 
@@ -73,13 +70,13 @@ public class GameEngine implements Observer {
 		}
 		switch (keyPressed) {
 		case KeyEvent.VK_1:
-			currentRoom.getHero().dropItem(0);//TODO
+			currentRoom.getHero().drop(0);//TODO
 			break;
 		case KeyEvent.VK_2:
-			currentRoom.getHero().dropItem(1);
+			currentRoom.getHero().drop(1);
 			break;
 		case KeyEvent.VK_3:
-			currentRoom.getHero().dropItem(2);
+			currentRoom.getHero().drop(2);
 			break;
 		}
 
