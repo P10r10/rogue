@@ -20,6 +20,10 @@ public class Room {
 	public Room(String name, List<GameElement> elements) {
 		this.name = name;
 		this.elements = elements;
+	}
+	
+	public void load() {
+		GameEngine.getInstance().getGui().clearImages();
 		for (ImageTile image : elements) {
 			GameEngine.getInstance().getGui().addImage(image);
 		}
@@ -34,17 +38,6 @@ public class Room {
 	public void removeGameElement(ImageTile gameElement) {
 		elements.remove(gameElement);
 	}
-	/*remove*/
-//	public List<GameElement> getElements(Point2D dest) {
-//		List<GameElement> res = new ArrayList<>();
-//		for (GameElement elem : elements) {
-//			if (elem.getPosition().equals(dest)) {
-//				res.add(elem);
-//			}
-//		}
-//		return res;
-//	}
-	/*remove*/
 
 	public void moveEnemies() {
 		for (ImageTile gameElement : elements) {
@@ -55,48 +48,38 @@ public class Room {
 
 	public GameElement elementAt(Point2D position) {
 		List<GameElement> elementsAt = new ArrayList<>();
+		// gathers elements in the same position
 		for (GameElement element : elements) {
 			if (position.equals(element.getPosition())) {
 				elementsAt.add(element);
 			}
 		}
-		//System.out.println("ElementsAt: " + elementsAt);
-		GameElement toReturn = null;
-		// If 2 elements are in the same Point2D, assigns priority
+		// if 2 elements are in the same Point2D, assigns priority
 		for (GameElement elementAt : elementsAt) {
 			if (elementAt instanceof Movable) {
 				return elementAt;
-//				toReturn = elementAt;
 			}
 		}
 		for (GameElement elementAt : elementsAt) {
 			if (elementAt instanceof Pickable) {
 				return elementAt;
-//				toReturn = elementAt;
 			}
 		}
 		for (GameElement elementAt : elementsAt) {
 			if (elementAt instanceof Door) {
 				return elementAt;
-//				toReturn = elementAt;
 			}
 		}
 		for (GameElement elementAt : elementsAt) {
 			if (elementAt instanceof Wall) {
 				return elementAt;
-//				toReturn = elementAt;
 			}
 		}
 		for (GameElement elementAt : elementsAt) {
 			if (elementAt instanceof Floor) {
 				return elementAt;
-//				toReturn = elementAt;
 			}
 		}
-//		if (toReturn != null) {
-//			System.out.println("To return: " + toReturn);
-//			return toReturn;
-//		}
 		return null;
 	}
 

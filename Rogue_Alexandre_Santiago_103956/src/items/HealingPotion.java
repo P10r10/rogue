@@ -6,7 +6,7 @@ import pt.iscte.poo.utils.Point2D;
 
 public class HealingPotion extends GameElement implements Pickable {
 
-	private int layer = 1;
+	private int layer = 2;
 
 	public HealingPotion(Point2D position) {
 		super(position);

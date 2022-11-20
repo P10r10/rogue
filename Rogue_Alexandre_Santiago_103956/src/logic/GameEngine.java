@@ -51,14 +51,25 @@ public class GameEngine implements Observer {
 		return currentRoom;
 	}
 
+	public void setCurrentRoom(String roomName) {
+		for (Room room : rooms) {
+			if (roomName.equals(room.toString())) {
+				currentRoom = room;
+				currentRoom.load();
+			}
+		}
+	}
+
 	public void start() { // init only once
 
-		// rooms.add(new Room("testRoom2"));// Load every room?
 		rooms.add(FileReader.createRoom("room0"));// Load every room?
-		currentRoom = rooms.get(0); // starting room
+		rooms.add(FileReader.createRoom("room1"));// Load every room?
+		rooms.add(FileReader.createRoom("room2"));// Load every room?
+		rooms.add(FileReader.createRoom("room3"));// Load every room?
+		currentRoom = rooms.get(1); // starting room
+		currentRoom.load();
 
 		gui.setStatusMessage("Good luck!");
-
 		gui.update();
 	}
 
@@ -81,7 +92,7 @@ public class GameEngine implements Observer {
 		}
 
 		currentRoom.moveEnemies();// only current room?
-
+		turns++;
 		gui.setStatusMessage("Turn: " + turns);
 		gui.update();
 	}

@@ -22,12 +22,28 @@ public class Door extends GameElement {
 		}
 	}
 	
+	public String getDestination() {
+		return destination;
+	}
+
+	public int getX_dest() {
+		return x_dest;
+	}
+
+	public int getY_dest() {
+		return y_dest;
+	}
+
 	public String getKey_id() {
 		return key_id;
 	}
 
 	public void open() {
 		isOpen = true;
+	}
+
+	public boolean isOpen() {
+		return isOpen;
 	}
 
 	@Override

@@ -24,39 +24,39 @@ public class Movement {
 		int turns = GameEngine.getInstance().getTurns();
 		Point2D heroPosition = hero.getPosition();
 		Point2D destination = heroPosition.plus(Direction.directionFor(keyPressed).asVector());
-
-		//REVER ATACAR INIMIGO EM CIMA DE OBJECTO
 		//System.out.println(room.elementAt(destination));//DEBUG REMOVE
-		//System.out.println(room.getElements(destination));
+		System.out.println(heroPosition);
 		GameElement element = room.elementAt(destination);
-		System.out.println("Movable? " + (element instanceof Movable));
-		System.out.println("Pickable? " + (element instanceof Pickable));
+		System.out.println(element);
 		
 		if (element instanceof Movable) {
-			System.out.println("HERE? mov");
 			Colision.withEnemy(element);
 		} else if (element instanceof Pickable) {
-			System.out.println("HERE? pic");
 			hero.pick(element);
 			hero.setPosition(destination);
 		} else if (element instanceof Door) {
 			Door door = (Door) element;
-			System.out.println(door.getKey_id());//DEBUG REMOVE
-			for (int i = 0; i < 3; i++) {
-				GameElement itemInSlot = room.elementAt(new Point2D(7 + i, 10));
-				if (itemInSlot instanceof Key) {
-					Key key = (Key) itemInSlot;
-					if (key.getId().equals(door.getKey_id())) {
-						door.open();
-						room.removeGameElement(itemInSlot);
-						break;
+			if (door.isOpen()) {
+				hero.setPosition(new Point2D(door.getX_dest(), door.getY_dest()));
+				GameEngine.getInstance().setCurrentRoom(door.getDestination());
+			
+			} else {
+				System.out.println(door.getKey_id());//DEBUG REMOVE
+				for (int i = 0; i < 3; i++) {
+					GameElement itemInSlot = room.elementAt(new Point2D(7 + i, 10));
+					if (itemInSlot instanceof Key) {
+						Key key = (Key) itemInSlot;
+						if (key.getId().equals(door.getKey_id())) {
+							door.open();
+							room.removeGameElement(itemInSlot);
+							break;
+						}
 					}
 				}
 			}
 		} else if (element instanceof Floor) {
 			hero.setPosition(destination);
 		}
-		GameEngine.getInstance().setTurns(++turns);// every movement key increases turn
 	}
 
 	public static void move(GameElement element) {
