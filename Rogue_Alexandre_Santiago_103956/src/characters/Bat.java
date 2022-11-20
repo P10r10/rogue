@@ -1,4 +1,6 @@
 package characters;
+import interfaces.Living;
+import interfaces.Movable;
 import logic.GameElement;
 import logic.Movement;
 import pt.iscte.poo.utils.Point2D;

@@ -1,6 +1,8 @@
 package characters;
 
-import items.Pickable;
+import interfaces.Living;
+import interfaces.Pickable;
+import items.Key;
 import logic.GameElement;
 import logic.GameEngine;
 import logic.HpBar;
@@ -10,7 +12,7 @@ import structures.Room;
 public class Hero extends GameElement implements Living {
 	/* Hero implements the singleton pattern */
 	private static Hero INSTANCE = null;
-	private int hp = 10; // initial hp
+	private int hp = 100; // initial hp
 	private final HpBar hpBar = new HpBar(hp);
 
 	private Hero(Point2D position) {

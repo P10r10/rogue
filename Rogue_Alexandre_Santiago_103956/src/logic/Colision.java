@@ -4,22 +4,22 @@ import java.util.Random;
 
 import characters.Bat;
 import characters.Hero;
-import characters.Living;
 import characters.Skeleton;
 import characters.Thug;
+import interfaces.Living;
 import pt.iscte.poo.gui.ImageTile;
 
 public class Colision {
 
 	public static void withEnemy(ImageTile gameElement) {
-		System.out.println("Hero colidiu com " + gameElement.getName());
+		//System.out.println("Hero colidiu com " + gameElement.getName());
 		if (gameElement instanceof Living) {
 			Living living = (Living) gameElement;
 			int heroDamage = 1; // + sword multiplier
 			if (living.isDead(heroDamage)) { // if takes deadly damage remove from room
 				GameEngine.getInstance().getGurrentRoom().removeGameElement(gameElement);
 			}
-			System.out.println(gameElement.getName() + " has " + living.getHp() + " hp left");
+			//System.out.println(gameElement.getName() + " has " + living.getHp() + " hp left");
 		}
 	}
 
@@ -46,6 +46,6 @@ public class Colision {
 			GameEngine.getInstance().getGui().dispose();
 			System.exit(0);
 		}
-		System.out.println("Hero has " + hero.getHp() + " hp left");
+		//System.out.println("Hero has " + hero.getHp() + " hp left");
 	}
 }

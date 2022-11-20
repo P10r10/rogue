@@ -1,11 +1,12 @@
 package items;
 
+import interfaces.Pickable;
 import logic.GameElement;
 import pt.iscte.poo.utils.Point2D;
 
 public class Sword extends GameElement implements Pickable {
 
-	private int layer = 1;
+	private int layer = 2;
 
 	public Sword(Point2D position) {
 		super(position);

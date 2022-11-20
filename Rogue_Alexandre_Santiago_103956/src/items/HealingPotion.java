@@ -1,5 +1,6 @@
 package items;
 
+import interfaces.Pickable;
 import logic.GameElement;
 import pt.iscte.poo.utils.Point2D;
 

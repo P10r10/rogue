@@ -54,7 +54,7 @@ public class GameEngine implements Observer {
 	public void start() { // init only once
 
 		// rooms.add(new Room("testRoom2"));// Load every room?
-		rooms.add(FileReader.createRoom("testRoom2"));// Load every room?
+		rooms.add(FileReader.createRoom("room0"));// Load every room?
 		currentRoom = rooms.get(0); // starting room
 
 		gui.setStatusMessage("Good luck!");
@@ -70,7 +70,7 @@ public class GameEngine implements Observer {
 		}
 		switch (keyPressed) {
 		case KeyEvent.VK_1:
-			currentRoom.getHero().drop(0);//TODO
+			currentRoom.getHero().drop(0);
 			break;
 		case KeyEvent.VK_2:
 			currentRoom.getHero().drop(1);

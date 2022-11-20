@@ -21,6 +21,14 @@ public class Door extends GameElement {
 			isOpen = true;
 		}
 	}
+	
+	public String getKey_id() {
+		return key_id;
+	}
+
+	public void open() {
+		isOpen = true;
+	}
 
 	@Override
 	public String getName() {

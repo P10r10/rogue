@@ -16,6 +16,6 @@ public class Black extends GameElement {
 
 	@Override
 	public int getLayer() {
-		return 0;
+		return 1;
 	}
 }

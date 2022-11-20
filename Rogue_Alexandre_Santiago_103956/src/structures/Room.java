@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import characters.Hero;
-import characters.Movable;
-import items.Pickable;
+import interfaces.Movable;
+import interfaces.Pickable;
 import logic.GameElement;
 import logic.GameEngine;
 import pt.iscte.poo.gui.ImageTile;
@@ -25,7 +25,6 @@ public class Room {
 		}
 		GameEngine.getInstance().getGui().addImage(hero);
 		GameEngine.getInstance().getGui().addImages(hero.getHpBar().getComponents());
-		//GameEngine.getInstance().getGui().addImages(hero.getItemBar().getComponents());
 	}
 
 	public Hero getHero() {
@@ -35,8 +34,19 @@ public class Room {
 	public void removeGameElement(ImageTile gameElement) {
 		elements.remove(gameElement);
 	}
+	/*remove*/
+//	public List<GameElement> getElements(Point2D dest) {
+//		List<GameElement> res = new ArrayList<>();
+//		for (GameElement elem : elements) {
+//			if (elem.getPosition().equals(dest)) {
+//				res.add(elem);
+//			}
+//		}
+//		return res;
+//	}
+	/*remove*/
 
-	public void moveEnemies() {// Make private?
+	public void moveEnemies() {
 		for (ImageTile gameElement : elements) {
 			if (gameElement instanceof Movable)
 				((Movable) gameElement).move();
@@ -50,27 +60,43 @@ public class Room {
 				elementsAt.add(element);
 			}
 		}
+		//System.out.println("ElementsAt: " + elementsAt);
 		GameElement toReturn = null;
 		// If 2 elements are in the same Point2D, assigns priority
 		for (GameElement elementAt : elementsAt) {
 			if (elementAt instanceof Movable) {
-				toReturn = elementAt;
-			}
-			if (elementAt instanceof Pickable) {
-				toReturn = elementAt;
-			}
-			if (elementAt instanceof Door) {
-				toReturn = elementAt;
-			}
-			if (elementAt instanceof Wall) {
-				toReturn = elementAt;
-			}
-			if (elementAt instanceof Floor) {
-				toReturn = elementAt;
+				return elementAt;
+//				toReturn = elementAt;
 			}
 		}
-		if (toReturn != null)
-			return toReturn;
+		for (GameElement elementAt : elementsAt) {
+			if (elementAt instanceof Pickable) {
+				return elementAt;
+//				toReturn = elementAt;
+			}
+		}
+		for (GameElement elementAt : elementsAt) {
+			if (elementAt instanceof Door) {
+				return elementAt;
+//				toReturn = elementAt;
+			}
+		}
+		for (GameElement elementAt : elementsAt) {
+			if (elementAt instanceof Wall) {
+				return elementAt;
+//				toReturn = elementAt;
+			}
+		}
+		for (GameElement elementAt : elementsAt) {
+			if (elementAt instanceof Floor) {
+				return elementAt;
+//				toReturn = elementAt;
+			}
+		}
+//		if (toReturn != null) {
+//			System.out.println("To return: " + toReturn);
+//			return toReturn;
+//		}
 		return null;
 	}
 
