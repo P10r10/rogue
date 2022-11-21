@@ -2,7 +2,6 @@ package characters;
 
 import interfaces.Living;
 import interfaces.Pickable;
-import items.Key;
 import logic.GameElement;
 import logic.GameEngine;
 import logic.HpBar;

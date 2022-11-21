@@ -62,13 +62,14 @@ public class GameEngine implements Observer {
 
 	public void start() { // init only once
 
-		rooms.add(FileReader.createRoom("room0"));// Load every room?
-		rooms.add(FileReader.createRoom("room1"));// Load every room?
-		rooms.add(FileReader.createRoom("room2"));// Load every room?
-		rooms.add(FileReader.createRoom("room3"));// Load every room?
-		currentRoom = rooms.get(1); // starting room
+//		rooms.add(FileReader.createRoom("room0"));// Load every room?
+//		rooms.add(FileReader.createRoom("room1"));// Load every room?
+//		rooms.add(FileReader.createRoom("room2"));// Load every room?
+//		rooms.add(FileReader.createRoom("room3"));// Load every room?
+		rooms.add(FileReader.createRoom("testRoom"));// Load every room?
+		currentRoom = rooms.get(0); // starting room
 		currentRoom.load();
-
+		
 		gui.setStatusMessage("Good luck!");
 		gui.update();
 	}

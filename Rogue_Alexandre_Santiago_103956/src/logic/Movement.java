@@ -1,11 +1,8 @@
 package logic;
 
-import java.util.Scanner;
-
 import characters.Bat;
 import characters.Hero;
 import characters.Skeleton;
-import interfaces.Living;
 import interfaces.Movable;
 import interfaces.Pickable;
 import items.Key;
@@ -21,13 +18,13 @@ public class Movement {
 	private static Hero hero = room.getHero();
 
 	public static void keyPress(int keyPressed) {
-		int turns = GameEngine.getInstance().getTurns();
+	//	int turns = GameEngine.getInstance().getTurns();
 		Point2D heroPosition = hero.getPosition();
 		Point2D destination = heroPosition.plus(Direction.directionFor(keyPressed).asVector());
 		//System.out.println(room.elementAt(destination));//DEBUG REMOVE
-		System.out.println(heroPosition);
+		//System.out.println(heroPosition);
 		GameElement element = room.elementAt(destination);
-		System.out.println(element);
+		//System.out.println(element);
 		
 		if (element instanceof Movable) {
 			Colision.withEnemy(element);
@@ -39,9 +36,7 @@ public class Movement {
 			if (door.isOpen()) {
 				hero.setPosition(new Point2D(door.getX_dest(), door.getY_dest()));
 				GameEngine.getInstance().setCurrentRoom(door.getDestination());
-			
 			} else {
-				System.out.println(door.getKey_id());//DEBUG REMOVE
 				for (int i = 0; i < 3; i++) {
 					GameElement itemInSlot = room.elementAt(new Point2D(7 + i, 10));
 					if (itemInSlot instanceof Key) {

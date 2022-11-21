@@ -15,6 +15,7 @@ import structures.Door;
 public abstract class GameElement implements ImageTile {
 
 	private Point2D position;
+	private int layer = 0;
 	
 	public GameElement(Point2D position) {
 		this.position = position;
@@ -29,6 +30,15 @@ public abstract class GameElement implements ImageTile {
 		this.position = position;
 	}
 	
+	@Override
+	public int getLayer() {
+		return layer;
+	}
+
+	public void setLayer(int layer) {
+		this.layer = layer;
+	}
+
 	public static GameElement create(String[] args) {
 		String name = args[0];
 		Point2D position = new Point2D(Integer.parseInt(args[1]), Integer.parseInt(args[2]));

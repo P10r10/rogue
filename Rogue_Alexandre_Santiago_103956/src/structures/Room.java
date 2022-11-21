@@ -29,7 +29,15 @@ public class Room {
 		}
 		GameEngine.getInstance().getGui().addImage(hero);
 		GameEngine.getInstance().getGui().addImages(hero.getHpBar().getComponents());
+		System.out.println("BREAK!");
+		elements.forEach(e -> System.out.println(e));
 	}
+	
+	/*remove*/
+	public List<GameElement> getElements() {
+		return elements;
+	}
+	/*remove*/
 
 	public Hero getHero() {
 		return hero;

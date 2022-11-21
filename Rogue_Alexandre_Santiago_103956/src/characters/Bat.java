@@ -1,53 +1,47 @@
 package characters;
-import interfaces.Living;
-import interfaces.Movable;
-import logic.GameElement;
+import logic.AliveGameElement;
 import logic.Movement;
 import pt.iscte.poo.utils.Point2D;
 
-public class Bat extends GameElement implements Movable, Living {
+public class Bat extends AliveGameElement {
 
-	private int hp = 3; // initial hp
-	private int layer = 1;
-	
-	public Bat(Point2D position) {
-		super(position);
+public Bat(Point2D position) {
+		super(position, 3);
 	}
+
+//	public Bat(Point2D position, 3) {
+//		super(position);
+//	}
 	
-	@Override
-	public boolean isDead(int damage) {
-		hp = hp - damage;
-		if (hp <= 0) {
-			return true;
-		}
-		return false;
-	}
+//	@Override
+//	public boolean isDead(int damage) {
+//		hp = hp - damage;
+//		if (hp <= 0) {
+//			return true;
+//		}
+//		return false;
+//	}
 	
-	@Override
-	public int getHp() {
-		return hp;
-	}
-	
+//	@Override
+//	public int getHp() {
+//		return hp;
+//	}
+//	
 	public void heal() {
-		if (hp < 3) {
-			hp++;
+		if (getHp() < 3) {
+			setHp(getHp() + 1);;
 		}
 	}
 
 	@Override
 	public String getName() {
-		if (hp <= 0) {
-			layer = 0;
+		if (getHp() <= 0) {
+			setLayer(0);
 			return "DeadBat";
 		}
 		return "Bat";
 	}
 
-	@Override
-	public int getLayer() {
-		return layer;
-	}
-	
 	@Override
 	public void move() {
 		Movement.move(this);
