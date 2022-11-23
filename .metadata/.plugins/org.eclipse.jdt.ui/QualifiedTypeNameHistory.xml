@@ -2,6 +2,9 @@
 <qualifiedTypeNameHistroy>
     <fullyQualifiedTypeName name="items.Sword"/>
     <fullyQualifiedTypeName name="java.util.List"/>
-    <fullyQualifiedTypeName name="logic.GameElement"/>
     <fullyQualifiedTypeName name="structures.Floor"/>
+    <fullyQualifiedTypeName name="java.lang.Override"/>
+    <fullyQualifiedTypeName name="logic.GameElement"/>
+    <fullyQualifiedTypeName name="javax.net.ssl.HostnameVerifier"/>
+    <fullyQualifiedTypeName name="logic.AliveGameElement"/>
 </qualifiedTypeNameHistroy>
